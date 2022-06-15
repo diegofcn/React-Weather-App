@@ -35,8 +35,15 @@ function App() {
 
   const formatBackground = () => {
     if (!weather) return "from-cyan-700 to-blue-700";
-    const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
+    const threshold = units === "metric" ? 30 : 86;
+    const threshold2 = units === "metric" ? 0 : 32;
+    const threshold3 = units === "metric" ? 10 : 50
+    const threshold4 = units === "metric" ? 20 : 68
+    if (weather.temp <= threshold2) return "from-stone-200 to-slate-400";
+    if (weather.temp <= threshold3 && weather.temp > threshold2) return "from-cyan-200 to-sky-400";
+    if (weather.temp <= threshold4 && weather.temp > threshold3) return "from-cyan-400 to-sky-600";
+    if (weather.temp <= threshold && weather.temp > threshold3) return "from-cyan-700 to-blue-700";
+    
 
     return "from-yellow-700 to-orange-700";
   };
